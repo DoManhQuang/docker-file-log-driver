@@ -16,7 +16,7 @@ import (
 	"github.com/docker/docker/daemon/logger/loggerutils"
 	protoio "github.com/gogo/protobuf/io"
 	"github.com/pkg/errors"
-	"github.com/tonistiigi/fifo"
+	"github.com/containerd/fifo"
 )
 
 type Driver struct {
