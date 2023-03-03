@@ -178,7 +178,7 @@ $ docker plugin rm file-log-driver
 You're more than welcome to hack on this.:-)
 
 ```
-$ git clone https://github.com/deep-compute/docker-file-log-driver
+$ git clone https://github.com/DoManhQuang/docker-file-log-driver
 $ cd docker-file-log-driver
 $ docker build -t docker-file-log-driver .
 $ ID=$(docker create docker-file-log-driver true)
