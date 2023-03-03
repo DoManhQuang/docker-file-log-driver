@@ -1,10 +1,10 @@
 FROM golang:1.17-alpine
 
 RUN apk update && apk add git nano
-COPY . /go/src/github.com/deep-compute/docker-file-log-driver
-WORKDIR /go/src/github.com/deep-compute/docker-file-log-driver
+COPY . /go/src/github.com/DoManhQuang/docker-file-log-driver
+WORKDIR /go/src/github.com/DoManhQuang/docker-file-log-driver
 
-RUN go mod init github.com/deep-compute/docker-file-log-driver
+RUN go mod init github.com/DoManhQuang/docker-file-log-driver
 RUN go get -v github.com/docker/docker@v20.10.14+incompatible
 RUN go get -v github.com/docker/go-plugins-helpers@v0.0.0-20211224144127-6eecb7beb651
 RUN go get -v github.com/pkg/errors@v0.9.1
