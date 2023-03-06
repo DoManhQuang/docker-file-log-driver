@@ -150,7 +150,7 @@ func consumeLog(lp *logPair) {
 func buildLogger(logCtx *logger.Info) *logrus.Logger {
     P := parseInt
 
-    fpath := parseFpath(readWithDefault(logCtx.Config, "fpath", ""), "/var/log/docker/docker_file_log_driver_default.log")
+    fpath := parseFpath(readWithDefault(logCtx.Config, "fpath", ""), "/docker/docker_file_log_driver_default.log")
     max_size := P(readWithDefault(logCtx.Config, "max-size", ""), 10)
     max_backups := P(readWithDefault(logCtx.Config, "max-backups", ""), 10)
     max_age := P(readWithDefault(logCtx.Config, "max-age", ""), 100)
