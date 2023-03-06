@@ -1,15 +1,9 @@
-# docker-file-log-driver
-
-File log driver for Docker that sends all of the containers output to a specified File. The code is inspired by https://github.com/pressrelations/docker-redis-log-driver.
-
 ## Background
 
 We use File as a reliable and simple storage for logs, Running docker containers stores logs in files with container id file name which is hard to locate because are stored in: 
 ```
 /var/lib/docker/containers/<container id>/<container id>-json.log
 ```
-
-The excellent [Logagg](https://github.com/deep-compute/logagg) is highly recommended to pick up the logs and transport them to whatever datbase you like.
 
 ## Features
 
@@ -66,16 +60,8 @@ The excellent [Logagg](https://github.com/deep-compute/logagg) is highly recomme
 ## Install
 
 ```
-$ docker plugin install deepcompute/docker-file-log-driver:1.0 --alias file-log-driver
-Plugin "deepcompute/docker-file-log-driver:1.0" is requesting the following privileges:
- - network: [host]
- - mount: [/var/log]
-Do you grant the above permissions? [y/N] y
-1.0: Pulling from deepcompute/docker-file-log-driver
-a019fc3de34c: Download complete 
-Digest: sha256:5b785ded313acd0881c589c5f588f19b3ec3b5300230684a5a7ab1ed1c65e400
-Status: Downloaded newer image for deepcompute/docker-file-log-driver:1.0
-Installed plugin deepcompute/docker-file-log-driver:1.0
+cd docker-file-log-driver
+bash runs.sh
 ```
 ## Check
 ```
@@ -108,12 +94,7 @@ $ sudo cat /var/log/testing/test.log |jq -r '.msg'| jq -r '.'
   "container_name": "blissful_varahamihira",
   "container_created": "2018-02-27T06:13:35.445157368Z",
   "image_id": "sha256:3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353",
-  "image_name": "alpine",
-  "command": "date",
-  "tag": "dd3662cd039c",
-  "extra": {},
-  "host": "deepcompute-ThinkPad-E470",
-  "timestamp": "2018-02-27T06:13:36.58459717Z"
+  ...
 }
 ```
 
@@ -140,16 +121,7 @@ $ sudo cat /var/log/testing/test2.log |jq -r '.msg'| jq -r '.'
   "container_name": "serene_leavitt",
   "container_created": "2018-02-27T07:20:31.729281471Z",
   "image_id": "sha256:3fd9065eaf02feaf94d68376da52541925650b81698c53c6824d92ff63f98353",
-  "image_name": "alpine",
-  "command": "date",
-  "tag": "alpine/serene_leavitt/3332274db729",
-  "extra": {
-    "SOME_ENV_VAR": "foobar",
-    "bar": "xyz",
-    "foo": "abc"
-  },
-  "host": "deepcompute-ThinkPad-E470",
-  "timestamp": "2018-02-27T07:20:32.948198669Z"
+  ...
 }
 ```
 
